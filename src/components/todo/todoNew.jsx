@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 
 const TodoNew = (props) => {
     const [valueInput, setValueInput] = useState("text input");
-    //destructuring array
     console.log(">> check props", props)
     const { addNewTodo } = props; // destructuring
 

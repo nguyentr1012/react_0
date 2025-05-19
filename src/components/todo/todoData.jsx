@@ -1,18 +1,19 @@
 const TodoData = (props) => {
-    const { todos } = props; // destructuring
+    const { todos, deleteTodo } = props; // destructuring
     //props là 1 object
-    console.log(">> check props", todos)
+    const handleClick = (id) => {
+        deleteTodo(id);
+    }
     return (
         <div className='todo-data'>
             {todos.map((item, index) => {
-                console.log(">> check map", item, index)
                 return (
-                    <div className="todo-item">
+                    <div className="todo-item" key={item.id}>
                         <div>{item.name}</div>
-                        <button> Delete</button>
+                        <button style={{ cursor: "pointer" }} onClick={() => handleClick(item.id)} > Delete</button>
                     </div>
                 )
             })}
-        </div>)
+        </div >)
 }
 export default TodoData
